@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
@@ -32,6 +35,18 @@ public class LibraryLoginPage extends BasePage {
     public void isCurrentPage(){
         String libraryTitle = "Login - Library";
         assertEquals(driver.getTitle(), libraryTitle);
+    }
+
+    // verify on correct url
+    public void isCurrentURL(){
+        String libraryURL = "https://library2.cybertekschool.com/login.html";
+        assertEquals(driver.getCurrentUrl(), libraryURL);
+    }
+
+    // verify two models exist on the page per US1AC2
+    public void verifyTwoModelsOnPage(){
+        List<WebElement> listOfPageModels = Driver.getDriver().findElements(By.xpath("//a[@class='nav-link']"));
+        Assert.assertEquals(listOfPageModels.size(), 2);
     }
 
     // user -> librarian login
