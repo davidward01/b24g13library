@@ -12,6 +12,10 @@ import org.testng.annotations.Test;
 
 public class BGR13_72_AC1 extends TestBase {
 
+    /**
+     * Created by: Matt
+     */
+
     @Test
     public void createNewUser() {
         // open browser
