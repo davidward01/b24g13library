@@ -1,4 +1,4 @@
-package com.cybertek.pages;
+package com.cybertek.pages.library;
 
 import com.cybertek.utils.ConfigurationReader;
 import com.cybertek.utils.Driver;
@@ -7,12 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LibraryLoginPage {
+import static org.testng.Assert.assertEquals;
 
-    public LibraryLoginPage() {
-        //Selenium command to initialize the elements below
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+public class LibraryLoginPage extends BasePage {
+
+//    public LibraryLoginPage() {
+//        //Selenium command to initialize the elements below
+//        PageFactory.initElements(Driver.getDriver(), this);
+//    }
 
     @FindBy(id="inputEmail")
     public WebElement email; //WebElement email = driver.findElement(By.id("inputEmail"))
@@ -25,6 +27,12 @@ public class LibraryLoginPage {
 
     @FindBy(xpath="//div[.='Sorry, Wrong Email or Password']")
     public WebElement errorMsg;
+
+    // verify on correct page
+    public void isCurrentPage(){
+        String libraryTitle = "Login - Library";
+        assertEquals(driver.getTitle(), libraryTitle);
+    }
 
     // user -> librarian login
     public void librarianLogin(){
