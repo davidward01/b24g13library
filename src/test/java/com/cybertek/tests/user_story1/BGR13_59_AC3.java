@@ -1,6 +1,7 @@
 package com.cybertek.tests.user_story1;
 
-import com.cybertek.pages.LibraryLoginPage;
+import com.cybertek.pages.library.LibraryLoginPage;
+import com.cybertek.pages.library.LibraryLoginPage;
 import com.cybertek.tests.TestBase;
 import com.cybertek.utils.ConfigurationReader;
 import org.testng.Assert;
