@@ -1,5 +1,6 @@
 package com.cybertek.pages;
 
+import com.cybertek.utils.ConfigurationReader;
 import com.cybertek.utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -24,5 +25,19 @@ public class LibraryLoginPage {
 
     @FindBy(xpath="//div[.='Sorry, Wrong Email or Password']")
     public WebElement errorMsg;
+
+    // user -> librarian login
+    public void librarianLogin(){
+        email.sendKeys(ConfigurationReader.getProperty("library2.librarian.email"));
+        password.sendKeys(ConfigurationReader.getProperty("library2.librarian.password"));
+        signInBtn.click();
+    }
+
+    // user -> student login
+    public void studentLogin(){
+        email.sendKeys(ConfigurationReader.getProperty("library2.student.email"));
+        password.sendKeys(ConfigurationReader.getProperty("library2.student.password"));
+        signInBtn.click();
+    }
 
 }
